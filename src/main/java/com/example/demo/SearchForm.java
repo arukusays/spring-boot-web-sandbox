@@ -21,5 +21,10 @@ public class SearchForm {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
+
+    @Override
+    public String toString(){
+        return String.format("searchName=%s, birthday=%s.", searchName, birthday);
+    }
     
 }
