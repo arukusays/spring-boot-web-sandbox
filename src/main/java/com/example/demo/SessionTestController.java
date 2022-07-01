@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("sessionSearchForm")
 @RequestMapping("/sessiontest")
 public class SessionTestController {
 
@@ -27,8 +30,17 @@ public class SessionTestController {
         return new SearchForm();
     }
 
+    @RequestMapping("/")
+    @ModelAttribute("sessionSearchForm")
+    public SearchForm initForm(SessionStatus status){
+        System.out.println("initForm");
+        status.setComplete();
+        return new SearchForm();
+    }
+
     @RequestMapping
-    public String index(){
+    public String index(Model model){
+        System.out.println("index:");
         return "sessiontest";
     }
 

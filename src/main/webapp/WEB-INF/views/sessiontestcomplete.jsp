@@ -9,6 +9,6 @@
 </head>
 <body>
     <h1>Session Attributes Complete</h1>
-    <a href="/sessiontest">入力画面へ</a>
+    <a href="/sessiontest/">入力画面へ</a>
 </body>
 </html>
